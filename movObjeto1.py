@@ -28,7 +28,7 @@ py.init()
 dimension1 = [620, 480]
 dimension2 = [480,620]
 
-pantalla = py.display.set_mode(dimension1)
+pantalla = py.display.set_mode(dimension2)
 py.display.set_caption("Animaciones Manuales")
 
 hecho = False
@@ -37,7 +37,8 @@ reloj = py.time.Clock()
 #
 x = 0 
 x2 = 580
-y = 480
+y = 0
+y2 = 620
 
 
 while not hecho:
@@ -45,14 +46,16 @@ while not hecho:
         if evento.type == py.QUIT:
             hecho = True
     pantalla.fill(VERDE)
-    #dibujarPistaVertical()
-    dibujarPistaHorizontal()
+    dibujarPistaVertical()
+    #dibujarPistaHorizontal()
     #Cuadro Rojo
-    py.draw.rect(pantalla, ROJO,[x,190,30,20])
+    py.draw.rect(pantalla, ROJO,[190,y,30,20])
     x+=1
+    y+=1
     #Cuadro Morado
-    py.draw.rect(pantalla, MORADO,[x2,260,30,20])
+    py.draw.rect(pantalla, MORADO,[260,y2,30,20])
     x2-=1
+    y2-=1
     py.display.flip()
     reloj.tick(20)
 
