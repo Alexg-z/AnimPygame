@@ -35,8 +35,8 @@ hecho = False
 reloj = py.time.Clock()
 
 #
-x = 0 
-x2 = 580
+x = 0
+x2 = 270
 y = 0
 y2 = 620
 
@@ -49,14 +49,22 @@ while not hecho:
     dibujarPistaVertical()
     #dibujarPistaHorizontal()
     #Cuadro Rojo
-    py.draw.rect(pantalla, ROJO,[190,y,30,20])
+    py.draw.rect(pantalla, ROJO,[190,y,20,30])
     x+=1
     y+=1
     #Cuadro Morado
-    py.draw.rect(pantalla, MORADO,[260,y2,30,20])
+    if y2 > 300:
+        x = 190
+    if y2 < 350:
+        #x = 260
+        for i in range(190,260,5):
+            x = i
+        
+        
+    py.draw.rect(pantalla, MORADO,[x,y2,20,30])
     x2-=1
     y2-=1
     py.display.flip()
-    reloj.tick(20)
+    reloj.tick(60)
 
 py.quit()
